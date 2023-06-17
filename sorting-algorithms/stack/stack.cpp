@@ -23,6 +23,10 @@ class Stack {
             top = node;
         }
 
+        bool isEmpty() {
+            return top == NULL;
+        }
+
         void display() {
             Node* temp;
             if (top == NULL) {
