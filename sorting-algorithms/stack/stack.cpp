@@ -23,6 +23,19 @@ class Stack {
             top = node;
         }
 
+        void pop() {
+            Node* node;
+            if (top == NULL) {
+                cout << "\nStack Underflow" << endl;
+                exit(1);
+            } else {
+                node = top;
+                top = top->next;
+                node->next = NULL;
+                delete node;
+            }
+        }
+
         bool isEmpty() {
             return top == NULL;
         }
