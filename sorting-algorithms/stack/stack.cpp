@@ -74,5 +74,11 @@ int main() {
     stack.push(20);
     stack.push(30);
     stack.display();
+
+    cout << "\nTop elements is: " << stack.peek() << endl;
+    stack.pop();
+    stack.display();
+    cout << "\nTop elements is: " << stack.peek() << endl;
+
     return 0;
 }
