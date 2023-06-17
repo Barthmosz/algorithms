@@ -1,85 +1,60 @@
-#include <iostream>
-using namespace std;
+#include "Stack.hpp"
 
-class Node {
-    public:
-        int data;
-        Node* next;
-};
+Stack::Stack() {
+    top = NULL;
+}
 
-class Stack {
-    public:
-        Node* top;
-        Stack() { top = NULL; }
+void Stack::push(int element) {
+    try {
+        Node* node = new Node;
+        node->data = element;
+        node->next = top;
+        top = node;
+    } catch (bad_alloc& ba) {
+        cout << "\nHeap Overflow: " << ba.what();
+        exit(HEAP_OVERFLOW);
+    }
+}
 
-        void push(int element) {
-            try {
-                Node* node = new Node;
-                node->data = element;
-                node->next = top;
-                top = node;
-            } catch(bad_alloc& ba) {
-                cout << "\nHeap Overflow";
-                exit(1);
-            }
-        }
+void Stack::pop() {
+    Node* node;
+    if (top == NULL) {
+        cout << "\nStack Underflow" << endl;
+        exit(STACK_UNDERFLOW);
+    } else {
+        node = top;
+        top = top->next;
+        node->next = NULL;
+        delete node;
+    }
+}
 
-        void pop() {
-            Node* node;
-            if (top == NULL) {
-                cout << "\nStack Underflow" << endl;
-                exit(1);
+int Stack::peek() {
+    if (!isEmpty()) {
+        return top->data;
+    } else {
+        exit(STACK_UNDERFLOW);
+    }
+}
+
+bool Stack::isEmpty() {
+    return top == NULL;
+}
+
+void Stack::display() {
+    Node* node;
+    if (top == NULL) {
+        cout << "\nStack Underflow";
+        exit(STACK_UNDERFLOW);
+    } else {
+        node = top;
+        while (node != NULL) {
+            if (node-> next == NULL) {
+                cout << node->data;
             } else {
-                node = top;
-                top = top->next;
-                node->next = NULL;
-                delete node;
+                cout << node->data << "->";
             }
+            node = node->next;
         }
-
-        bool isEmpty() {
-            return top == NULL;
-        }
-
-        int peek() {
-            if (!isEmpty()) {
-                return top->data;
-            } else {
-                exit(1);
-            }
-        }
-
-        void display() {
-            Node* temp;
-            if (top == NULL) {
-                cout << "\nStack Underflow";
-                exit(1);
-            } else {
-                temp = top;
-                while (temp != NULL) {
-                    if (temp->next != NULL) {
-                        cout << temp->data << "->";
-                    }
-                    else {
-                        cout << temp->data;
-                    }
-                    temp = temp->next;
-                }
-            }
-        }
-};
-
-int main() {
-    Stack stack;
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    stack.display();
-
-    cout << "\nTop elements is: " << stack.peek() << endl;
-    stack.pop();
-    stack.display();
-    cout << "\nTop elements is: " << stack.peek() << endl;
-
-    return 0;
+    }
 }

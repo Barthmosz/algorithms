@@ -19,7 +19,7 @@ class Stack {
         
         void push(int element);
         void pop();
-        void peek();
+        int peek();
         bool isEmpty();
         void display();
 };
