@@ -41,4 +41,4 @@ Temporary Items
 # Custom
 .vscode
 *.dSYM
-stack
+sorting-algorithms/stack/stack
