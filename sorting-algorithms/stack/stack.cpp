@@ -27,6 +27,14 @@ class Stack {
             return top == NULL;
         }
 
+        int peek() {
+            if (!isEmpty()) {
+                return top->data;
+            } else {
+                exit(1);
+            }
+        }
+
         void display() {
             Node* temp;
             if (top == NULL) {
