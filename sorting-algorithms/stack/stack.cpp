@@ -56,7 +56,12 @@ class Stack {
             } else {
                 temp = top;
                 while (temp != NULL) {
-                    cout << temp->data << "-> ";
+                    if (temp->next != NULL) {
+                        cout << temp->data << "->";
+                    }
+                    else {
+                        cout << temp->data;
+                    }
                     temp = temp->next;
                 }
             }
@@ -65,5 +70,9 @@ class Stack {
 
 int main() {
     Stack stack;
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.display();
     return 0;
 }
