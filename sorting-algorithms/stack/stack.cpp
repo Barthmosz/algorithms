@@ -13,14 +13,15 @@ class Stack {
         Stack() { top = NULL; }
 
         void push(int element) {
-            Node* node = new Node;
-            if (!node) {
+            try {
+                Node* node = new Node;
+                node->data = element;
+                node->next = top;
+                top = node;
+            } catch(bad_alloc& ba) {
                 cout << "\nHeap Overflow";
                 exit(1);
             }
-            node->data = element;
-            node->next = top;
-            top = node;
         }
 
         void pop() {
