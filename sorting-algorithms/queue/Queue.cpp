@@ -11,3 +11,7 @@ Queue::Queue(unsigned int capacity) {
 Queue::~Queue() {
     delete[] queue;
 }
+
+bool Queue::isFull() {
+    return (count == capacity);
+}
