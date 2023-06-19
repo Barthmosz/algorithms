@@ -40,3 +40,7 @@ bool Queue::isFull() {
 bool Queue::isEmpty() {
     return count == 0;
 }
+
+int Queue::size() {
+    return count;
+}
