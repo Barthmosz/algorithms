@@ -13,5 +13,9 @@ Queue::~Queue() {
 }
 
 bool Queue::isFull() {
-    return (count == capacity);
+    return count == capacity;
+}
+
+bool Queue::isEmpty() {
+    return count == 0;
 }
