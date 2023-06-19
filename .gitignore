@@ -41,4 +41,5 @@ Temporary Items
 # Custom
 .vscode
 *.dSYM
-sorting-algorithms/stack/stack
+sorting-algorithms/stack/Stack
+sorting-algorithms/queue/Queue
