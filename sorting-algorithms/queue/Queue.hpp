@@ -1,3 +1,6 @@
+#ifndef QUEUE_HPP
+#define QUEUE_HPP
+
 #include <iostream>
 using namespace std;
 
@@ -18,3 +21,5 @@ class Queue {
         int* queue;
         unsigned int capacity;
 };
+
+#endif
