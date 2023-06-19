@@ -22,6 +22,17 @@ void Queue::enqueue(int item) {
     cout << item << " enqueued.";
 }
 
+int Queue::dequeue() {
+    if (isEmpty()) {
+        cout << "Queue is empty" << endl;
+        exit(1);
+    }
+    int item = queue[front];
+    front = (front + 1) % capacity;
+    count--;
+    return item;
+}
+
 bool Queue::isFull() {
     return count == capacity;
 }
