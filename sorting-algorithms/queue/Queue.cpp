@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Queue.hpp"
 
 Queue::Queue(unsigned int capacity) {
@@ -10,6 +9,17 @@ Queue::Queue(unsigned int capacity) {
 
 Queue::~Queue() {
     delete[] queue;
+}
+
+void Queue::enqueue(int item) {
+    if (isFull()) {
+        cout << "Queue is full." << endl;
+        exit(1);
+    }
+    rear = (rear + 1) % capacity;
+    queue[rear] = item;
+    count++;
+    cout << item << " enqueued.";
 }
 
 bool Queue::isFull() {
