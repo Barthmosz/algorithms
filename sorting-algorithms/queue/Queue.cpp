@@ -19,6 +19,7 @@ void Queue::enqueue(int item) {
     rear = (rear + 1) % capacity;
     queue[rear] = item;
     count++;
+    cout << item << " enqueued to queue" << endl;
 }
 
 int Queue::dequeue() {
