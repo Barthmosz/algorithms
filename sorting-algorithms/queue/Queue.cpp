@@ -1,7 +1,7 @@
 #include "Queue.hpp"
 
 Queue::Queue(unsigned int capacity) {
-    capacity = capacity;
+    this->capacity = capacity;
     queue = new int[capacity];
     front = count = 0;
     rear = capacity - 1;
@@ -19,7 +19,6 @@ void Queue::enqueue(int item) {
     rear = (rear + 1) % capacity;
     queue[rear] = item;
     count++;
-    cout << item << " enqueued.";
 }
 
 int Queue::dequeue() {
@@ -51,7 +50,7 @@ void Queue::display() {
         exit(1);
     }
     for (int i = 0; i < count; i++) {
-        cout << queue[(front + 1) % capacity] << " ";
+        cout << queue[(front + i) % capacity] << " ";
     }
     cout << endl;
 }
