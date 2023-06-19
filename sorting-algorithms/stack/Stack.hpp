@@ -1,3 +1,6 @@
+#ifndef STACK_HPP
+#define STACK_HPP
+
 #include <iostream>
 using namespace std;
 
@@ -23,3 +26,5 @@ class Stack {
         bool isEmpty();
         void display();
 };
+
+#endif
