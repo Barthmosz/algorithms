@@ -44,3 +44,14 @@ bool Queue::isEmpty() {
 int Queue::size() {
     return count;
 }
+
+void Queue::display() {
+    if (isEmpty()) {
+        cout << "Queue is empty." << endl;
+        exit(1);
+    }
+    for (int i = 0; i < count; i++) {
+        cout << queue[(front + 1) % capacity] << " ";
+    }
+    cout << endl;
+}
